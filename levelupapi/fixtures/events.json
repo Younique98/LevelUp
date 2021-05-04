@@ -1,0 +1,14 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "event_name": 1,
+            "description": "This event will happen quarterly.",
+            "date": "2002-09-02",
+            "organizer": 1,
+            "game": 1,
+            "attendee": [1] 
+        }
+    } 
+]
