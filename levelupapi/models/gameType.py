@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import path, include
 
 
 class GameType(models.Model):
