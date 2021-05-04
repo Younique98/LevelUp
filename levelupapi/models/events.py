@@ -1,15 +1,14 @@
 from django.db import models
-from django.contrib.auth.models import Gamer
-from django.contrib.auth.models import Game
-
 
 class Event(models.Model):
 
     event_name = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
-    time = models.TimeField()
-    date = models.DateField()
-    gamer = models.ForeignKey(
-        Gamer, on_delete=models.CASCADE)
+    description = models.TextField()
+    date = models.DateTimeField()
+    organizer = models.ForeignKey(
+        "Gamer", on_delete=models.CASCADE)
     game = models.ForeignKey(
-        Game, on_delete=models.CASCADE)
+        "Game", on_delete=models.CASCADE)
+    attendee = models.ManyToManyField( "Gamer",
+        related_name='attending', through='AttendingGamer'
+    )
