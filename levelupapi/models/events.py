@@ -5,6 +5,7 @@ class Event(models.Model):
     event_name = models.CharField(max_length=50)
     description = models.TextField()
     date = models.DateTimeField()
+    time = models.TimeField()
     organizer = models.ForeignKey(
         "Gamer", on_delete=models.CASCADE)
     game = models.ForeignKey(
