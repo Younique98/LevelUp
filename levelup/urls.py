@@ -2,7 +2,8 @@ from django.conf.urls import include
 from django.urls import path
 from levelupapi.views import register_user, login_user
 from rest_framework import routers
-from levelupapi.views import Games, GameTypes, Events
+from levelupapi.views import Games, GameTypes, Events, Profile
+
 
 # if did not have slash is false i would have to manually place it in the url
 # router is an instance of the default router class. default router class is built in to the django framework
@@ -13,6 +14,7 @@ router.register(r'gametypes', GameTypes, 'gametype')
 #game on the right is the singular version of the route which tells django what the query/model will be to use for that route
 router.register(r'games', Games, 'game')
 router.register(r'events', Events, 'event')
+router.register(r'profile', Profile, 'profile')
 #url patterns even though registered we have to add to the url patterns to hit the routes. so on the backend using localhost8000
 urlpatterns = [
     path('', include(router.urls)),
