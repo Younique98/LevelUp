@@ -15,6 +15,7 @@ router.register(r'games', Games, 'game')
 router.register(r'events', Events, 'event')
 #url patterns even though registered we have to add to the url patterns to hit the routes. so on the backend using localhost8000
 urlpatterns = [
+    path('', include(router.urls)),
     path('register', register_user),
     path('login', login_user),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
