@@ -6,7 +6,8 @@
             "name": "Welcome To",
             "game_type": 1,
             "number_of_players": 4,
-            "skill_level": 3
+            "skill_level": 3,
+            "maker": 1
         }
     },
     {
@@ -16,7 +17,8 @@
             "name": "Settlers of Catan",
             "game_type": 1,
             "number_of_players": 4,
-            "skill_level": 4
+            "skill_level": 4,
+            "maker": 1
         }
     },
     {
@@ -26,7 +28,8 @@
             "name": "Dungeons & Dragons",
             "game_type": 2,
             "number_of_players": 5,
-            "skill_level": 3
+            "skill_level": 3,
+            "maker": 1
         }
     }
 ]
