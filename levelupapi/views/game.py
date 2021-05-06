@@ -88,7 +88,7 @@ class Games(ViewSet):
         game.gamer = gamer
 
         gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-        game.gametype = gametype
+        game.game_type = gametype
         game.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
