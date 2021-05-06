@@ -8,5 +8,9 @@
             "name": "LevelUp",
             "database": "db.sqlite3"
         }
+    ],
+
+    "python.linting.pylintArgs": [
+        "--django-settings-module=levelup.settings",
     ]
 }

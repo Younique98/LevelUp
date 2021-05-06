@@ -26,7 +26,7 @@ class Games(ViewSet):
         # and set its properties from what was sent in the
         # body of the request from the client.
         game = Game()
-        game.title = request.data["title"]
+        game.name = request.data["name"]
         game.maker = request.data["maker"]
         game.number_of_players = request.data["numberOfPlayers"]
         game.skill_level = request.data["skillLevel"]
@@ -36,7 +36,7 @@ class Games(ViewSet):
         # whose `id` is what the client passed as the
         # `gameTypeId` in the body of the request.
         gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-        game.gametype = gametype
+        game.game_type = gametype
 
         # Try to save the new game to the database, then
         # serialize the game instance as JSON, and send the
@@ -76,15 +76,12 @@ class Games(ViewSet):
         """Handle PUT requests for a game
 
         Returns:
-            Response -- Empty body with 204 status code
+        Response -- Empty body with 204 status code
         """
         gamer = Gamer.objects.get(user=request.auth.user)
 
-        # Do mostly the same thing as POST, but instead of
-        # creating a new instance of Game, get the game record
-        # from the database whose primary key is `pk`
         game = Game.objects.get(pk=pk)
-        game.title = request.data["title"]
+        game.name = request.data["name"]
         game.maker = request.data["maker"]
         game.number_of_players = request.data["numberOfPlayers"]
         game.skill_level = request.data["skillLevel"]
@@ -94,8 +91,6 @@ class Games(ViewSet):
         game.gametype = gametype
         game.save()
 
-        # 204 status code means everything worked but the
-        # server is not sending back any data in the response
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk=None):
@@ -145,5 +140,5 @@ class GameSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Game
-        fields = ('id', 'title', 'maker', 'number_of_players', 'skill_level', 'gametype')
+        fields = ('id', 'name', 'number_of_players', 'skill_level', 'game_type')
         depth = 1
