@@ -22,12 +22,13 @@ class Events(ViewSet):
         gamer = Gamer.objects.get(user=request.auth.user)
 
         event = Event()
+        event.event_name = request.data["name"]
         event.time = request.data["time"]
         event.date = request.data["date"]
         event.description = request.data["description"]
         event.organizer = gamer
 
-        game = Game.objects.get(pk=request.data["gameId"])
+        game = Game.objects.get(pk=request.data["game"])
         event.game = game
 
         try:
