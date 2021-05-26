@@ -137,7 +137,7 @@ class Events(ViewSet):
                     event=event, gamer=gamer)
                 return Response(
                     {'message': 'Gamer already signed up this event.'},
-                    status=status.HTTP_422_UNPROCESSABLE_ENTITY
+                    status=status.HTTP_400_BAD_REQUEST
                 )
             except AttendingGamer.DoesNotExist:
                 # The user is not signed up.
